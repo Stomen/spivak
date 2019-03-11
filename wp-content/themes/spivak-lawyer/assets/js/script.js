@@ -155,16 +155,19 @@
         });
     }
     // // stickey menu
+    var topBlock = $("div.header-top");
     $(window).on('scroll',function() {    
         var scroll = $(window).scrollTop(),
             mainHeader = $('#sticky-header'),
             mainHeaderHeight = mainHeader.innerHeight();
         
-        // console.log(mainHeader.innerHeight());
-        if (scroll > 1) {
+         //console.log($("div.header-top").height() + 20);
+        if (scroll > topBlock.height() + 20) {
             $("#sticky-header").addClass("sticky");
+            topBlock.css('padding-bottom', '85px');
         }else{
             $("#sticky-header").removeClass("sticky");
+            topBlock.css('padding-bottom', '0');
         }
     });
     /*==========================================================================

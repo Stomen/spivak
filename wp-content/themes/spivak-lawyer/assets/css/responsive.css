@@ -1160,7 +1160,7 @@
 
       .contact-area form input,
       .contact-area-s2 form input,
-      .contact-area form textarea,
+      .contact-area form textarea
           {
           height: 45px;
       }

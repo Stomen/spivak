@@ -10,11 +10,11 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'spivak-lawyer' ); ?></h1>
+	<header style="margin-bottom: 15px;" class="page-header">
+		<h1 class="page-title">Нічого не знайдено</h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div style="margin-bottom: 30px" class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
@@ -34,14 +34,14 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'spivak-lawyer' ); ?></p>
+			<p style="margin-bottom: 15px;"><?php esc_html_e( 'Вибачте, але нічого не відповідає вашим пошуковим запитам. Повторіть спробу з іншими ключовими словами.', 'spivak-lawyer' ); ?></p>
 			<?php
 			get_search_form();
 
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'spivak-lawyer' ); ?></p>
+			<p style="margin-bottom: 15px";><?php esc_html_e( 'Здається, ми можемо знайти те, що ви шукаєте. Повторіть спробу з іншими ключовими словами.', 'spivak-lawyer' ); ?></p>
 			<?php
 			get_search_form();
 

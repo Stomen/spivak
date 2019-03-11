@@ -4,143 +4,92 @@ get_header();
 
     <main>
         <!-- .breadcumb-area start -->
-        <div class="breadcumb-area">
+        <div class="breadcumb-area" style="background: url(<?php the_field('contacts_main_photo'); ?>) no-repeat center top / cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcumb-wrap">
-                            <h2>News</h2>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><span>News</span></li>
-                            </ul>
+                            <h2><?php the_title(); ?></h2>
+                            <?php breadcrumbs(); ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- .breadcumb-area end -->
-        <div class="blog-page-area section-padding">
+        <!-- .contact-page-area start -->
+        <div class="contact-page-area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-12">
-                        <div class="blog-left-bar">
-                            <div class="blog-item">
-                                <div class="blog-img">
-                                    <div class="blog-s2">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/7.jpg" alt="">
-                                    </div>
-                                    <ul class="post-meta">
-                                        <li><img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/6.jpg" alt=""></li>
-                                        <li><a href="#">By Aliza anne</a></li>
-                                        <li class="clr">Family Law</li>
-                                        <li> Oct 12,2018</li>
-                                    </ul>
-                                </div>
-                                <div class="blog-content-2">
-                                    <h2>What lawyer can do for you</h2>
-                                    <p>I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
-                                    <a href="#">read more..</a>
-                                </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="contact-page-item">
+                            <h2><?php the_field("name_of_contact_page_title"); ?></h2>
+                            <?php the_field("contact_field_page_description"); ?>
+                            <div class="adress">
+                                <h3><?php the_field("name_field_of_cont_page"); ?></h3>
+                                <span><?php the_field("name_adress_page_contact"); ?></span>
                             </div>
-                            <div class="blog-item">
-                                <div class="blog-img">
-                                    <div class="blog-s2">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/2.jpg" alt="">
-                                    </div>
-                                    <ul class="post-meta">
-                                        <li><img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/6.jpg" alt=""></li>
-                                        <li><a href="#">By Aliza anne</a></li>
-                                        <li class="clr">Family Law</li>
-                                        <li> Oct 12,2018</li>
-                                    </ul>
-                                </div>
-                                <div class="blog-content-2">
-                                    <h2>who do not know how to pursue pleasure</h2>
-                                    <p>I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
-                                    <a href="#">read more..</a>
-                                </div>
+                            <div class="phone">
+                                <h3><?php the_field("name_field_of_cont_page_tel"); ?></h3>
+                                <span><a href="tel:<?php echo preg_replace('/\D+/', '', get_field("name_of_tel_field_cont_page")); ?>"><?php  the_field("name_of_tel_field_cont_page"); ?></a></span></div>
+                            <div class="email">
+                                <h3><?php the_field("name_email_field_cont_page"); ?></h3>
+                                <span><a href="mailto:<?php the_field("email_cont_field_name"); ?>"><?php the_field("email_cont_field_name"); ?></a></span>
                             </div>
-                            <div class="blog-item">
-                                <div class="blog-img">
-                                    <div class="blog-s2 video-holder">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/3.jpg" alt="">
-                                        <a href="https://www.youtube.com/embed/uQBL7pSAXR8?autoplay=1" class="video-btn" data-type="iframe">
-                                            <i class="fa fa-play" aria-hidden="true"></i>
-                                        </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12">
+                        <div class="contact-area contact-area-2 contact-area-3">
+                            <h2><?php the_field("contsct_page_name_field_form"); ?></h2>
+                            <div class="contact-form">
+                                <form method="post" class="contact-validation-active" id="contact-form">
+                                    <div class="half-col">
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
                                     </div>
-                                    <ul class="post-meta">
-                                        <li><img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/6.jpg" alt=""></li>
-                                        <li><a href="#">By Aliza anne</a></li>
-                                        <li class="clr">Family Law</li>
-                                        <li> Oct 12,2018</li>
-                                    </ul>
-                                </div>
-                                <div class="blog-content-2">
-                                    <h2>How you can find the best justice</h2>
-                                    <p>I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
-                                    <a href="#">read more..</a>
-                                </div>
-                            </div>
-                            <div class="blog-item blog-item-2">
-                                <div class="blog-img blog-img-2">
-                                    <div class="blog-s2">
-                                        <div class="blog-content-3">
-                                            <ul class="post-meta">
-                                                <li><img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/6.jpg" alt=""></li>
-                                                <li><a href="#">By Aliza anne</a></li>
-                                                <li class="clr">Family Law</li>
-                                                <li> Oct 12,2018</li>
-                                            </ul>
-                                            <h2>The things only for you</h2>
-                                            <p>I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure,</p>
-                                            <a href="#">read more..</a>
+                                    <div class="half-col">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                    </div>
+                                    <div class="half-col">
+                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
+                                    </div>
+                                    <div class="half-col">
+                                        <input type="text" name="address" id="address" class="form-control" placeholder="Address">
+                                    </div>
+                                    <div>
+                                        <textarea class="form-control" name="note"  id="note" placeholder="Case Description..."></textarea>
+                                    </div>
+                                    <div class="submit-btn-wrapper">
+                                        <button type="submit" class="theme-btn-s3">Appointment</button>
+                                        <div id="loader">
+                                            <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <div class="blog-img">
-                                    <div class="blog-s2">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/4.jpg" alt="">
+                                    <div class="clearfix error-handling-messages">
+                                        <div id="success">Thank you</div>
+                                        <div id="error"> Error occurred while sending email. Please try again later. </div>
                                     </div>
-                                    <ul class="post-meta">
-                                        <li><img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-page/6.jpg" alt=""></li>
-                                        <li><a href="#">By Aliza anne</a></li>
-                                        <li class="clr">Family Law</li>
-                                        <li> Oct 12,2018</li>
-                                    </ul>
-                                </div>
-                                <div class="blog-content-2">
-                                    <h2>who do not know how to pursue pleasure</h2>
-                                    <p>I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
-                                    <a href="#">read more..</a>
-                                </div>
+                                </form>
                             </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="pagination-wrapper">
-                                        <ul>
-                                            <li><span>1</span></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a class="next" href="blog-details.html">Next Page</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="contact-map">
+                            <?php the_field("link_for_map_contact"); ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- .contact-page-area end -->
         <!-- start social-newsletter-section -->
         <section class="social-newsletter-section">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="newsletter text-center">
-                            <h3>Subscribe  Newsletter</h3>
+                            <h3><?php the_field("name_of_subs_block", 2); ?></h3>
                             <div class="newsletter-form">
                                 <form>
                                     <input type="text" class="form-control" placeholder="Enter Your Email Address...">

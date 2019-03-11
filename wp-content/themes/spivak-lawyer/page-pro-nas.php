@@ -4,270 +4,111 @@ get_header();
 
     <main>
         <!-- .breadcumb-area start -->
-        <div class="breadcumb-area">
+        <div class="breadcumb-area" style="background: url(<?php the_field('about_us_main_photo'); ?>) no-repeat center top / cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcumb-wrap">
-                            <h2>Practice Area</h2>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><span>Practice area</span></li>
-                            </ul>
+                            <h2><?php the_title(); ?></h2>
+                            <?php breadcrumbs(); ?>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                 </div>
+             </div>
+         </div>
         <!-- .breadcumb-area end -->
-        <!-- .service-area start -->
-        <div class="service-area service-area2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 icon-c">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-lawyer"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <span>Book Your</span>
-                                        <h3>Appointment</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 icon-c">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-scale"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <span>Get Free</span>
-                                        <h3>Expert Advice</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 icon-c">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-network"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <span>You Can Easily</span>
-                                        <h3>Join Our Team</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .service-area end -->
-        <!-- practice-area start -->
-        <div class="practice-area practice-area2">
-            <div class="container">
-                <div class="col-l2">
-                    <div class="section-title text-center">
-                        <span>Area Of Practice</span>
-                        <h2>How Can We Help You</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-parents"></i>
-                                </div>
 
-                                <div class="service-text">
-                                    <h3>Join Our Team</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-wounded"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Personal Injury</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-employee"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Business Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-thief"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Criminal Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-university-graduate-hat"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Education Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-house"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Real Estate Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="btns text-center">
-                    <div class="btn-style"><a href="#">Load more</a></div>
-                </div>
-            </div>
-        </div>
-        <!-- practice-area end -->
-        <!-- .pricing-table area start -->
-        <div class="prising-area">
-            <div class="container">
-                <div class="col-l2">
-                    <div class="section-title text-center">
-                        <span>Our Pricing Plan</span>
-                        <h2>Pricing Table</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="pricing-item">
-                            <div class="pricing-icon">
-                                <i class="fi flaticon-scale"></i>
-                                <span>Started Plan</span>
-                            </div>
-                            <div class="pricing-text">
-                                <h2><span>$</span>120</h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
-                                <div class="btns text-center">
-                                    <div class="btn-style"><a href="#">Get Started</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="pricing-item">
-                            <div class="pricing-icon">
-                                <i class="fi flaticon-scale"></i>
-                                <span>Basic Plan</span>
-                            </div>
-                            <div class="pricing-text">
-                                <h2><span>$</span>150</h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
-                                <div class="btns text-center">
-                                    <div class="btn-style"><a href="#">Get Started</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="pricing-item">
-                            <div class="pricing-icon">
-                                <i class="fi flaticon-scale"></i>
-                                <span>Advanced Plan</span>
-                            </div>
-                            <div class="pricing-text">
-                                <h2><span>$</span>180</h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
-                                <div class="btns text-center">
-                                    <div class="btn-style"><a href="#">Get Started</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .pricing-table area end -->
-        <!-- testimonial area start -->
-        <div class="testimonial-area testimonial-area2">
+        <!-- Attorneys-content-section start -->
+        <div class="Attorneys-content-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="testimonial-img">
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/testimonial/1.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-7 offset-lg-1 col-md-6">
-                        <div class="testimonial-text">
-                            <div class="title">
-                                <span>What People Say</span>
-                                <h2>Client Testimonial</h2>
-                            </div>
-                            <div class="testimonial-slide owl-carousel">
-                                <div class="slide-item">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
-                                    <div class="thumb-img">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/testimonial/2.png" alt="">
+                    <div class="col-lg-10 offset-lg-1">
+                        <!-- .Attorneys area start -->
+                        <div class="Attorneys-area">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-l">
+                                        <div class="Attorneys-item">
+                                            <div class="Attorneys-img">
+                                                <img src="<?php the_field('about_partnet_photo'); ?>" alt="">
+                                            </div>
+                                            <div class="Attorneys-text">
+                                                <h2><?php the_field('partner_name_about'); ?></h2>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="img-content">
-                                        <h4>Jhony Goaver</h4>
-                                        <span>CEO of American BDS</span>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="Attorneys-info">
+                                            <div class="Attorneys-content">
+                                                <h3><?php the_field('about_important_info'); ?></h3>
+                                            </div>
+                                            <div class="info-outer">
+                                                <ul class="info">
+                                                    <?php
+                                                    if( have_rows('about_info_repeater') ):
+                                                        while ( have_rows('about_info_repeater') ) : the_row();
+                                                            ?>
+                                                            <li><span><?php the_sub_field("name_of_field"); ?>: </span> <?php the_sub_field("value_of_field"); ?></li>
+                                                        <?php
+                                                        endwhile;
+                                                    endif;
+                                                    ?>
+                                                </ul>
+                                                <!--<ul class="social">
+                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                                </ul>-->
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="slide-item">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
-                                    <div class="thumb-img">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/testimonial/2.png" alt="">
+                            </div>
+                        </div>
+                        <!-- .Attorneys area end -->
+                       <div class="attorneys_box_info">
+                           <?php the_field("other_about_info"); ?>
+                       </div>
+                        <!-- studies area start -->
+                        <h2><?php the_field("name_of_faq_qest"); ?></h2>
+                        <div style="padding-bottom: 20px" class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="studies-item">
+                                    <div class="studies-single">
+                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/1.jpg" alt="">
                                     </div>
-                                    <div class="img-content">
-                                        <h4>Jhony Goaver</h4>
-                                        <span>CEO of American BDS</span>
+                                    <div class="overlay-text">
+                                        <div class="text-inner">
+                                            <p class="sub">Corporate</p>
+                                            <h3>General Service</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="studies-item">
+                                    <div class="studies-single">
+                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/2.jpg" alt="">
+                                    </div>
+                                    <div class="overlay-text">
+                                        <div class="text-inner">
+                                            <p class="sub">General</p>
+                                            <h3>Personal Issue</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="studies-item">
+                                    <div class="studies-single">
+                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/3.jpg" alt="">
+                                    </div>
+                                    <div class="overlay-text">
+                                        <div class="text-inner">
+                                            <p class="sub">Business</p>
+                                            <h3>Business Accounting</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -276,14 +117,14 @@ get_header();
                 </div>
             </div>
         </div>
-        <!-- testimonial area start -->
+        <!-- Attorneys-content-section end -->
         <!-- start social-newsletter-section -->
         <section class="social-newsletter-section">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="newsletter text-center">
-                            <h3>Subscribe  Newsletter</h3>
+                            <h3><?php the_field("name_of_subs_block", 2); ?></h3>
                             <div class="newsletter-form">
                                 <form>
                                     <input type="text" class="form-control" placeholder="Enter Your Email Address...">

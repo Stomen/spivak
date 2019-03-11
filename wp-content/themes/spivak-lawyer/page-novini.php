@@ -9,169 +9,97 @@ get_header();
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcumb-wrap">
-                            <h2>Case Stadies</h2>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><span>Resent Case Studies</span></li>
-                            </ul>
+                            <h2><?php the_title(); ?></h2>
+                            <?php breadcrumbs(); ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- .breadcumb-area end -->
-        <!-- case studiess area start -->
-        <div class="studies-area studies-area2 section-padding">
+        <div class="blog-page-area section-padding">
             <div class="container">
-                <!-- studies area start -->
-                <div class="col-l2">
-                    <div class="section-title section-title2 text-center">
-                        <span>Here Our Best Work</span>
-                        <h2>Our Resent Case Studies</h2>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="studies-menu text-center">
-                        <button class="active" data-filter="*">All</button>
-                        <button data-filter=".Family-Matters">Family Matters</button>
-                        <button data-filter=".Real-Estate">Real Estate</button>
-                        <button data-filter=".Business">Business</button>
-                        <button data-filter=".Criminal">Criminal</button>
-                        <button data-filter=".Injury">Injury</button>
-                    </div>
-                </div>
-                <div class="row grid">
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family Matters Business Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/1.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Corporate</p>
-                                    <h3>General Service</h3>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <div class="blog-left-bar">
+                            <?php
+                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                            $args = array(
+                                'posts_per_page' => 10,
+                                'cat'=> 3,
+                                'orderby' => 'date',
+                                'paged'=>$paged,
+                                'post_type' => 'post'
+                            );
+                            if (have_posts()) : query_posts($args);
+                                while (have_posts()) : the_post();
+                                    if(get_the_post_thumbnail() == ''){
+                                        ?>
+                                        <div class="blog-item blog-item-2">
+                                            <div class="blog-img blog-img-2">
+                                                <div class="blog-s2">
+                                                    <div class="blog-content-3">
+                                                        <ul class="post-meta">
+                                                            <li><?php echo get_post_time( 'j F Y' ); ?></li>
+                                                        </ul>
+                                                        <h2><?php the_title() ?></h2>
+                                                        <?php the_content("read more..") ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                    else{
+                                        ?>
+                                        <div class="blog-item">
+                                            <div class="blog-img">
+                                                <div class="blog-s2">
+                                                    <img src="<?php echo get_the_post_thumbnail_url( $post, "large" ); ?>" alt="">
+                                                </div>
+                                                <ul class="post-meta">
+                                                    <li><?php echo get_post_time( 'j F Y' ); ?></li>
+                                                </ul>
+                                            </div>
+                                            <div class="blog-content-2">
+                                                <h2><?php the_title() ?></h2>
+                                                <?php the_content("read more..") ?>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                endwhile;
+                            endif;
+                            ?>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="pagination-wrapper">
+                                        <?php
+                                        $nav = get_the_posts_pagination( array(
+                                            'next_text'          => __( 'Наступна', 'twentyfifteen' ),
+                                            'prev_text'          => __( 'Попередня', 'twentyfifteen' ),
+                                            'screen_reader_text' => __( 'A' )
+                                        ) );
+                                        $nav = str_replace('<h2 class="screen-reader-text">A</h2>', '', $nav);
+                                        echo $nav; ?>
+                                    </div>
                                 </div>
                             </div>
+                            <?php
+                            wp_reset_postdata();
+                            ?>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Real-Estate Criminal">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/2.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">General</p>
-                                    <h3>Personal Issue</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Business Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/3.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Business</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Real-Estate Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/4.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Criminal</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Real-Estate Business Criminal Family-Matters Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/5.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Family Issue</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family Matters Business Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/6.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Corporate</p>
-                                    <h3>General Service</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Business Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/3.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Business</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family Matters Business Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/1.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Corporate</p>
-                                    <h3>General Service</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Real-Estate Criminal">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/2.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">General</p>
-                                    <h3>Personal Issue</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="btns text-center">
-                    <div class="btn-style"><a href="#">Load more</a></div>
                 </div>
             </div>
         </div>
-        <!-- case studiess area end -->
         <!-- start social-newsletter-section -->
         <section class="social-newsletter-section">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="newsletter text-center">
-                            <h3>Subscribe  Newsletter</h3>
+                            <h3><?php the_field("name_of_subs_block", 2); ?></h3>
                             <div class="newsletter-form">
                                 <form>
                                     <input type="text" class="form-control" placeholder="Enter Your Email Address...">

@@ -4,52 +4,45 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package spivak-lawyer
+ * @package stageup
  */
 
-get_header();
-?>
+get_header(); ?>
+    <main>
+        <div class="container"  style="height: calc(100vh - 150px);">
+            <div class="title-block">
+                <div style="font-size: 20px;margin: 10px 0;" class="center">
+                    <span><?php printf("Результати пошуку для: %s", ' ' . get_search_query()); ?></span>
+                </div>
+            </div>
+            <div class="search-page">
+                <div class="center">
+                    <?php
+                    if (have_posts()) : ?>
+                        <div style="margin-bottom: 15px" class="search-items">
+                            <?php
+                            while (have_posts()) : the_post();
+                                $string = rtrim(substr(strip_tags(get_the_content()), 0, 600), "!,.-");
+                                $string = substr($string, 0, strrpos($string, ' ')) . '...';
+                                ?>
+                                <div style="line-height: 1.5;margin-bottom: 20px;border-bottom: 1px solid #d0d0d0;" class="search-item">
+                                    <a href="<?= get_permalink(); ?>"><?php the_title(); ?></a>
+                                    <p><?= $string; ?></p>
+                                </div>
+                            <?php
+                            endwhile;
+                            ?>
+                        </div>
+                    <?php
+                    else :
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+                        get_template_part('template-parts/content', 'none');
 
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'spivak-lawyer' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
+                    endif;
+                    the_posts_pagination();?>
+                </div>
+            </div>
+        </div>
+    </main><!-- #main -->
 <?php
-get_sidebar();
 get_footer();
