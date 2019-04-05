@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <!-- Page Title -->
-    <title> Barristar – Lawyers Attorneys and Law Firm HTML Template </title>
+    <title>Співак Олексій - адвокат</title>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -20,12 +20,19 @@
 <body class="<?php if( is_404() ){
     echo "this_is_404";
 }
-else if(is_page("kontakti")){
+else if(is_page("kontakti") || is_page("main")){
     echo "this_contacts";
 }
 else if(is_search()){
     echo "search_page";
+}
+if(is_page("main") || is_page("novini")){
+    echo " with_subsc";
 }?>">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v3.2&appId=818896771780805&autoLogAppEvents=1"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&autoLogAppEvents=1&version=v3.2&appId=818896771780805"></script>
 <div id="preloader">
     <div class="loader_line"></div>
 </div>
@@ -34,15 +41,43 @@ else if(is_search()){
     <div class="header-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-12 col-12 col-lg-5">
+                <div class="col-md-3 col-sm-12 col-12 col-lg-4">
                     <ul class="d-flex account_login-area">
                         <li><i class="fa fa-map-marker" aria-hidden="true"><a target="_blank" href="<?php the_field("map_link", 2); ?>"></i><?php the_field("adress_company", 2); ?></a></li>
                     </ul>
                 </div>
-                <div class="col-md-6 col-sm-12 col-12 col-lg-5">
+                <div class="col-md-6 col-sm-12 col-12 col-lg-6">
                     <ul class="header-contact">
-                        <li><a href="tel:<?php echo preg_replace('/\D+/', '', get_field("phone_number", 2)); ?>"><i class="fa fa-phone"></i><?php  the_field("phone_number", 2); ?></a></li>
-                        <li><i class="fa fa-envelope"></i><a href="mailto:<?php  the_field("email", 2); ?>"><?php  the_field("email", 2); ?></a></li>
+                        <?php
+                        if(get_field("phone_number", 2)){
+                            ?>
+                            <li><a href="tel:<?php echo preg_replace('/\D+/', '', get_field("phone_number", 2)); ?>"><i class="fa fa-phone"></i><?php  the_field("phone_number", 2); ?></a></li>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if(get_field("header_phone_1", 2)){
+                            ?>
+                            <li><a href="tel:<?php echo preg_replace('/\D+/', '', get_field("header_phone_1", 2)); ?>"><i class="fa fa-phone"></i><?php  the_field("header_phone_1", 2); ?></a></li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                    <ul class="header-contact">
+                        <?php
+                        if(get_field("email", 2)){
+                            ?>
+                            <li><i class="fa fa-envelope"></i><a href="mailto:<?php  the_field("email", 2); ?>"><?php  the_field("email", 2); ?></a></li>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                            if(get_field("header_email_2", 2)){
+                                ?>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:<?php  the_field("header_email_2", 2); ?>"><?php  the_field("header_email_2", 2); ?></a></li>
+                                <?php
+                            }
+                        ?>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-12 col-lg-2">
@@ -57,7 +92,7 @@ else if(is_search()){
                 <div class="row">
                     <div class="col-lg-3 col-md-10 col-sm-10 col-8">
                         <div class="logo">
-                            <a href="<?php echo get_home_url();?>"><img height="60px" src="<?php echo get_theme_file_uri(); ?>/assets/images/spivak_logo_new.png" alt=""></a>
+                            <a href="<?php echo get_home_url();?>"><img height="60px" src="<?php echo get_theme_file_uri(); ?>/assets/images/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-8 d-none d-lg-block">

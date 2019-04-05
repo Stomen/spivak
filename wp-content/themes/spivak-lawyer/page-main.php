@@ -94,7 +94,7 @@ get_header();
         <div class="about-area about-area2 section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col col-lg-6">
+                    <div class="col col-lg-4">
                         <div class="about-title">
                             <div class="img-holder">
                                 <img src="<?php the_field("block_about_us_photo"); ?>" alt>
@@ -127,108 +127,34 @@ get_header();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-parents"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <h3>Family Law</h3>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-wounded"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <h3>Personal Injury</h3>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of </p>
+                    <?php
+                    $query = new WP_Query('post_type=services');
+                    if ( $query->have_posts() ) {
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                            ?>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="service-item">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <a href="<?php echo get_permalink(); ?>">
+                                                <div class="service-icon" style="background: center url('<?php the_field("trumb_photo"); ?>') no-repeat; border-radius: 50%; background-size: cover"></div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <div class="service-text">
+                                                <a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                                                <?php the_field("low_discription"); ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-employee"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <h3>Business Law</h3>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-thief"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <h3>Criminal Law</h3>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-university-graduate-hat"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <h3>Education Law</h3>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                                    <div class="service-icon">
-                                        <i class="fi flaticon-house"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <div class="service-text">
-                                        <h3>Real Estate Law</h3>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                        }
+                    }
+                    wp_reset_postdata();
+                    ?>
                 </div>
             </div>
         </div>
@@ -245,80 +171,45 @@ get_header();
                 </div>
                 <div class="col-12">
                     <div class="studies-menu text-center">
-                        <button class="active" data-filter="*">All</button>
-                        <button data-filter=".Family-Matters">Family Matters</button>
-                        <button data-filter=".Real-Estate">Real Estate</button>
-                        <button data-filter=".Business">Business</button>
-                        <button data-filter=".Criminal">Criminal</button>
-                        <button data-filter=".Injury">Injury</button>
+                        <button class="active" data-filter="*">Всі</button>
+                        <?php
+                        $custom_tax_cats = get_terms( "questions-cat" );
+                        foreach ($custom_tax_cats as $item){
+                            ?>
+                            <button data-filter=".<?php echo $item->slug; ?>"><?php echo $item->name; ?></button>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
-                <div class="row grid">
-                    <div class="col-c grid-item Family Matters Business Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/1.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Corporate</p>
-                                    <h3>General Service</h3>
+                <div class="row grid faq">
+                    <?php
+                    $counter = 0;
+                    $index_query = new WP_Query(array('post_type' => 'faq', 'posts_per_page' => '-1', 'order' => 'DESC'));
+                    while ($index_query->have_posts()) : $index_query->the_post();
+                        $terms = get_the_terms( $post->ID, 'questions-cat' );
+                        ?>
+
+                        <div class="col-c grid-item <?php echo $terms[0]->slug; ?>" data-number="<?php echo $counter; ?>">
+                            <a href="<?php echo get_permalink(); ?>">
+                                <div class="studies-item">
+                                    <div class="studies-single">
+                                        <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                    </div>
+                                    <div class="overlay-text">
+                                        <div class="text-inner">
+                                            <p class="sub"><?php echo $terms[0]->name; ?></p>
+                                            <h3><?php the_title(); ?></h3>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-c grid-item Family-Matters Real-Estate Criminal">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/2.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">General</p>
-                                    <h3>Personal Issue</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-c grid-item Family-Matters Business Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/3.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Business</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-c grid-item Real-Estate Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/4.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Criminal</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-c grid-item Real-Estate Business Criminal Family-Matters Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/5.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Family Issue</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?
+                        $counter++;
+                    endwhile;
+                    wp_reset_query();
+                    ?>
                 </div>
             </div>
         </div>
@@ -340,88 +231,40 @@ get_header();
                             </div>
                             <div class="testimonial-slide owl-carousel">
                                 <?php
-                                if( have_rows('testimonils_slider') ):
-                                    while ( have_rows('testimonils_slider') ) : the_row();
+                                // задаем нужные нам критерии выборки данных из БД
+                                $args = array(
+                                    'posts_per_page' => 5,
+                                    'post_type' => 'wpm-testimonial'
+                                );
+
+                                $query = new WP_Query( $args );
+                                // Цикл
+                                if ( $query->have_posts() ) {
+                                    while ( $query->have_posts() ) {
+                                        $query->the_post();
                                         ?>
                                         <div class="slide-item">
-                                            <p><?php the_sub_field("testimpnail_title"); ?></p>
+                                            <p><?php echo wp_trim_words( get_the_content(), 20 ); ?></p>
                                             <div class="thumb-img">
-                                                <img src="<?php the_sub_field("client_photo"); ?>" alt="">
-                                            </div>
-                                            <div class="img-content">
-                                                <h4><?php the_sub_field("client_name"); ?></h4>
-                                                <span><?php the_sub_field("client_position"); ?></span>
+                                                <!--                                                <img src="<?php /*the_sub_field("client_photo"); */?>" alt="">
+-->                                            </div>
+                                            <div style="margin: 0 0 0 30px" class="img-content">
+                                                <h4><?php wpmtst_field( 'client_name' ); ?></h4>
                                             </div>
                                         </div>
-                                    <?php
-                                    endwhile;
-                                endif;
+                                        <?
+                                    }
+                                }
+                                wp_reset_postdata();
                                 ?>
                             </div>
+                            <a href="/vidguki"><button style="margin-top: 50px; cursor: pointer; outline: none " class="theme-btn-s3">Більше коментарів...</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- testimonial area start -->
-        <!-- .contact area start -->
-        <div class="contact-area section-padding" id="consult-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-md-12">
-                        <div class="contact-text">
-                            <div class="title">
-                                <span><?php the_field("text_above_cons_block"); ?></span>
-                                <h2><?php the_field("name_consultation"); ?></h2>
-                            </div>
-                            <span class="date"></span>
-                            <?php the_field("block_text_area_conult"); ?>
-                        </div>
-                    </div>
-                    <div class="col col-lg-7 col-md-12 col-sm-12">
-                        <div class="contact-content">
-                            <div class="contact-form">
-                                <form method="post" class="contact-validation-active" id="contact-form">
-                                    <div class="half-col">
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
-                                    </div>
-                                    <div class="half-col">
-                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone">
-                                    </div>
-                                    <div class="half-col">
-                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-                                    </div>
-                                    <div class="half-col">
-                                        <select name="address" id="address" class="form-control">
-                                            <option disabled selected>Family Law</option>
-                                            <option>Criminal Law</option>
-                                            <option>Business Law</option>
-                                            <option>Personal Injury</option>
-                                            <option>Education Law</option>
-                                            <option>Drugs Crime</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <textarea class="form-control" name="note"  id="note" placeholder="Case Description..."></textarea>
-                                    </div>
-                                    <div class="submit-btn-wrapper">
-                                        <button type="submit" class="theme-btn">Appointment</button>
-                                        <div id="loader">
-                                            <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix error-handling-messages">
-                                        <div id="success">Thank you</div>
-                                        <div id="error"> Error occurred while sending email. Please try again later. </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .contact area start -->
         <!-- expert-area start -->
         <!--<div class="expert-area section-padding">
             <div class="container">
@@ -540,7 +383,6 @@ get_header();
             </div>
         </div>-->
         <!-- expert-area end -->
-        <!-- .counter-area start -->
         <div style="background: gray" class="counter-area counter-area2">
             <div class="container">
                 <div class="row">
@@ -576,69 +418,75 @@ get_header();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog/1.jpg" alt="">
+                    <?php
+                    $array_query = array(
+                        "cat" => 3,
+                        "posts_per_page"=> 3
+                    );
+                    $query = new WP_Query($array_query);
+                    if ( $query->have_posts() ) {
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                           ?>
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="blog-item">
+                                    <div class="blog-img">
+                                        <img style="height: 230px;width: 100%;object-fit: cover;" src="<?php echo get_the_post_thumbnail_url( $post, '' ); ?>" alt="">
+                                    </div>
+                                    <div class="blog-content">
+                                        <h3><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                        <ul class="post-meta">
+                                            <li><?php the_date('j.m.Y'); ?></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="blog-content">
-                                <h3><a href="#">Justice May For You If  You Are Innocent</a></h3>
-                                <ul class="post-meta">
-                                    <li> Oct 12,2018</li>
-                                </ul>
+                            <?php
+                        }
+                    }
+                    wp_reset_postdata();
+                    ?>
+                </div>
+            </div>
+        </div>
+        <!-- blog-area start -->
+        <?php
+        get_sidebar( 'subscribe' );
+        ?>
+        <!-- .counter-area start -->
+        <div style="background: white">
+            <div class="container block-for-back">
+                <div class="row" style="padding: 25px 0; align-items: center">
+                    <div class="col-lg-5 col-md-12"><?php the_field("text_file_block"); ?></div>
+                    <div class="col-lg-5 col-md-12 data-info-file" data-btn-id = "<?php echo get_the_ID(); ?>"><?php echo do_shortcode("[contact-form-7 id=\"224\" title=\"Форма подписки на рассылку\"]"); ?></div>
+                </div>
+            </div>
+        </div>
+        <!-- .contact area start -->
+        <div class="contact-area section-padding" id="consult-block" style='background-attachment: fixed;background: url("<?php the_field('layout_block_question') ?>") center center/cover no-repeat local'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12">
+                        <div class="contact-text">
+                            <div class="title">
+                                <span><?php the_field("text_above_cons_block"); ?></span>
+                                <h2><?php the_field("name_consultation"); ?></h2>
                             </div>
+                            <span class="date"></span>
+                            <?php the_field("block_text_area_conult"); ?>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog/2.jpg" alt="">
-                            </div>
-                            <div class="blog-content">
-                                <h3><a href="#">Justice May For You If  You Are Innocent</a></h3>
-                                <ul class="post-meta">
-                                    <li> Oct 12,2018</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="blog-item b-0">
-                            <div class="blog-img">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog/3.jpg" alt="">
-                            </div>
-                            <div class="blog-content">
-                                <h3><a href="#">Justice May For You If  You Are Innocent</a></h3>
-                                <ul class="post-meta">
-                                    <li> Oct 12,2018</li>
-                                </ul>
+                    <div class="col col-lg-7 col-md-12 col-sm-12">
+                        <div class="contact-content">
+                            <div class="contact-form">
+                                <?php echo do_shortcode("[contact-form-7 id=\"232\" title=\"Форма консультация\"]"); ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- blog-area start -->
-        <!-- start social-newsletter-section -->
-        <section class="social-newsletter-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="newsletter text-center">
-                            <h3><?php the_field("name_of_subs_block"); ?></h3>
-                            <div class="newsletter-form">
-                                <form>
-                                    <input type="text" class="form-control" placeholder="Enter Your Email Address...">
-                                    <button type="submit">subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- end social-newsletter-section -->
+        <!-- .contact area start -->
     </main>
 
 <?php

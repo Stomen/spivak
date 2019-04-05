@@ -5,38 +5,10 @@
         <div class="footer-top" style="padding-bottom: 0">
             <div class="container">
                 <div style="background: transparent" class="contact-area contact-area-2 contact-area-3">
-                    <h2 style="color: white;">Quick Contact Form</h2>
+                    <h2 style="color: white;"><?php the_field("name_form_feedback", 2); ?></h2>
                     <div class="contact-form">
-                        <form method="post" class="contact-validation-active" id="contact-form" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div>
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
-                                    </div>
-                                    <div>
-                                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
-                                    </div>
-                                    <div>
-                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div>
-                                        <textarea class="form-control" name="note" id="note" placeholder="Case Description..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="submit-btn-wrapper">
-                                <button type="submit" class="theme-btn-s3">Appointment</button>
-                                <div id="loader">
-                                    <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-                                </div>
-                            </div>
-                            <div class="clearfix error-handling-messages">
-                                <div id="success">Thank you</div>
-                                <div id="error"> Error occurred while sending email. Please try again later. </div>
-                            </div>
-                        </form>
+                        <?php echo do_shortcode("[contact-form-7 id=\"230\" title=\"Форма в подвале сайта\"]")?>
+
                     </div>
                 </div>
             </div>

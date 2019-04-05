@@ -73,71 +73,40 @@ get_header();
                         <!-- studies area start -->
                         <h2><?php the_field("name_of_faq_qest"); ?></h2>
                         <div style="padding-bottom: 20px" class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="studies-item">
-                                    <div class="studies-single">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/1.jpg" alt="">
-                                    </div>
-                                    <div class="overlay-text">
-                                        <div class="text-inner">
-                                            <p class="sub">Corporate</p>
-                                            <h3>General Service</h3>
+                            <?php
+                            $index_query = new WP_Query(array('post_type' => 'faq', 'posts_per_page' => '3', 'order' => 'DESC'));
+                            while ($index_query->have_posts()) : $index_query->the_post();
+                                $terms = get_the_terms( $post->ID, 'questions-cat' );
+                                ?>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 grid-item <?php echo $terms[0]->slug; ?>">
+                                    <a href="<?php echo get_permalink(); ?>">
+                                        <div class="studies-item">
+                                            <div class="studies-single">
+                                                <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                            </div>
+                                            <div class="overlay-text">
+                                                <div class="text-inner">
+                                                    <p class="sub"><?php echo $terms[0]->name; ?></p>
+                                                    <h3><?php the_title(); ?></h3>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="studies-item">
-                                    <div class="studies-single">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/2.jpg" alt="">
-                                    </div>
-                                    <div class="overlay-text">
-                                        <div class="text-inner">
-                                            <p class="sub">General</p>
-                                            <h3>Personal Issue</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="studies-item">
-                                    <div class="studies-single">
-                                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/3.jpg" alt="">
-                                    </div>
-                                    <div class="overlay-text">
-                                        <div class="text-inner">
-                                            <p class="sub">Business</p>
-                                            <h3>Business Accounting</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?
+                            endwhile;
+                            wp_reset_query();
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Attorneys-content-section end -->
-        <!-- start social-newsletter-section -->
-        <section class="social-newsletter-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="newsletter text-center">
-                            <h3><?php the_field("name_of_subs_block", 2); ?></h3>
-                            <div class="newsletter-form">
-                                <form>
-                                    <input type="text" class="form-control" placeholder="Enter Your Email Address...">
-                                    <button type="submit">subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- end social-newsletter-section -->
+        <?php
+        get_sidebar( 'subscribe' );
+        ?>
     </main>
 
 <?php

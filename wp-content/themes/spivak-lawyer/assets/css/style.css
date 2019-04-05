@@ -457,6 +457,7 @@ mobile menu
 
 .btn-style-3 a:before {
     content: "";
+    display: none;
     position: absolute;
     left: -60px;
     top: 50%;
@@ -546,7 +547,7 @@ mobile menu
 ==============================================*/
 .hero {
     position: relative;
-    height: 800px;
+    height: 500px;
     overflow: hidden;
 }
 
@@ -582,7 +583,7 @@ mobile menu
 }
 
 .hero .slide {
-    height: 800px;
+    height: 500px;
     position: relative;
     background-repeat: no-repeat;
 }
@@ -832,6 +833,8 @@ mobile menu
     content: "";
     background-color: #c0b596;
     width: 100%;
+    max-width: 330px;
+    min-height: 280px;
     height: 100%;
     position: absolute;
     left: 10px;
@@ -1673,6 +1676,7 @@ mobile menu
 .social-newsletter-section {
     padding: 70px 0 80px;
     background: #272c3f;
+    display: none;
 }
 
 .newsletter {
@@ -1715,14 +1719,18 @@ mobile menu
 /*=======================================
 1.5 footer-area start
 =========================================*/
-/*body.this_is_404 .footer-area {
+/*
+body.search_page .fictitious-footer{
+    display: none;
+}*/
+body.this_is_404 .visible-footer {
     background: #151a30;
     position: static;
     width: 100%;
     bottom: 0;
     z-index: unset;
 }
-body.search_page .footer-area {
+body.search_page .visible-footer {
     background: #151a30;
     position: static;
     width: 100%;
@@ -1730,9 +1738,6 @@ body.search_page .footer-area {
     z-index: unset;
 
 }
-body.search_page .fictitious-footer{
-    display: none;
-}*/
 .footer-area {
     background: #151a30;
     z-index: 4;
@@ -1745,7 +1750,7 @@ body.search_page .fictitious-footer{
     left: 0;
     margin: 0 auto;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     z-index: 5;
 }
 
@@ -2057,7 +2062,7 @@ body.search_page .fictitious-footer{
 
 .practice-area.practice-area2 .service-icon:after {
     position: absolute;
-    content: "";
+    display: none;
     background: #c0b596;
     bottom: 0;
     width: 65px;
@@ -2736,7 +2741,6 @@ body.search_page .fictitious-footer{
 }
 
 .blog-content-3 {
-    background: url(../images/blog-page/5.jpg) no-repeat center center / cover;
     padding: 40px 50px 60px;
     position: relative;
     z-index: 11;
@@ -3156,7 +3160,7 @@ body.search_page .fictitious-footer{
 }
 
 .blog-left-bar .comments-area .comment-main-area {
-    padding-left: 100px;
+    padding-left: 10px;
 }
 
 .blog-left-bar .comments-area .comments-meta h4 {
@@ -3259,7 +3263,7 @@ body.search_page .fictitious-footer{
 }
 
 .blog-left-bar .comment-respond .form-submit input {
-    max-width: 120px;
+    max-width: 140px;
     background-color: #c0b596;
     color: #fff;
     font-weight: bold;

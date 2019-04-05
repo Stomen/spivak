@@ -142,36 +142,310 @@ import theme scc
 	line-height: 40px;
 	color: #223;
 }
-.blog-item h1{
+.blog-item h1, .practice-section-text h1{
 	font-size: 30px;
 }
-.blog-item h2{
+.blog-item h2, .practice-section-text h2{
 	font-size: 26px;
 }
-.blog-item h3{
+.blog-item h3, .practice-section-text h3{
 	font-size: 22px;
 }
-.blog-item h4{
+.blog-item h4, .practice-section-text h4{
 	font-size: 18px;
 }
-.blog-item h5{
+.blog-item h5, .practice-section-text h5{
 	font-size: 14px;
 }
-.blog-item b{
+.blog-item b, .practice-section-text b{
 	font-weight: 800;
 }
-.blog-item em{
+.blog-item em, .practice-section-text em{
 	font-style: italic;
 }
 
-.blog-item ul, .blog-item ol{
+.blog-item ul, .blog-item ol, .practice-section-text ol, .practice-section-text li{
 	margin: 15px 0;
 
 }
-.blog-item ul li{
+.blog-item ul li, .practice-section-text ul li{
 	list-style-type: circle;
 }
-.blog-item ol li{
+.blog-item ol li, .practice-section-text ol li{
 	list-style-type: decimal;
 }
+.blog-left-bar .comments-area .comments-meta h4{
+	display: inline-block;
+	margin-right: 20px;
+}
+.blog-left-bar .comments-area .comment-reply-link.active span{
+	color: purple;
+}
+.comment-reply-link.active span i{
+	color: purple;
+}
+.row.grid.faq .studies-single{
+    overflow: hidden;
+}
+.studies-menu-single{
+    padding-bottom: 50px;
+}
+.studies-item{
+	overflow: hidden;
+}
+.studies-item img{
+	overflow: hidden;
+	border-right: 1px solid  #d5c8ad;
+	border-left: 1px solid  #d5c8ad;
+}
 
+.social-newsletter-section .newsletter .newsletter-form .sbmt-btn{
+	background: rgba(192, 181, 150);
+	color: #fff;
+	border: 0;
+	outline: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 125px;
+	height: 50px;
+	border-top-right-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+	padding: 0;
+	cursor: pointer;
+}
+span.wpcf7-not-valid-tip{
+	text-align: left;
+	font-size: 10px;
+	display: block;
+	margin: -7px 0;
+}
+div.wpcf7-response-output{
+	margin: -15px 0 0 0;
+	font-size: 12px;
+	color: white;
+}
+.contact-area.contact-area-2 .wpcf7-form-control.wpcf7-submit{
+	background-color: #c0b596;
+	font-size: 15px;
+	font-weight: 700;
+	color: #fff;
+	padding: 9px 25px;
+	border: 2px solid transparent;
+	text-transform: capitalize;
+	display: inline-block;
+	transition: all .3s;
+	height: auto;
+	margin-left: 15px;
+}
+.visible-footer span.wpcf7-not-valid-tip, .contact-form  span.wpcf7-not-valid-tip{
+	margin: 0;
+	position: relative;
+	top: -15px;
+	left: 15px;
+}
+.visible-footer div.wpcf7-response-output{
+	width: 97%;
+	margin: 0 auto;
+	padding: 0;
+}
+.contact-form div.wpcf7-response-output{
+	width: 95%;
+	margin: 5px auto;
+	padding: 0;
+}
+.this_contacts .contact-form div.wpcf7-response-output{
+	color: black;
+}
+.contact-form form .row input{
+	color: #5a5959;
+}
+.contact-form form .row textarea{
+	color: #5a5959;
+}
+.contact-content .wpcf7-form-control-wrap, .this_contacts .wpcf7-form-control-wrap{
+	position: static;
+}
+.this_contacts .contact-area select.wpcf7-select.form-control{
+	background: #ebebeb;
+	border: none;
+	color: #878787;
+}
+.this_contacts .contact-area input{
+	color: #615f5f;
+}
+.contact-content .contact-form input[type="submit"]{
+	margin-left: 15px;
+	cursor: pointer;
+}
+.block-for-back .form-control{
+	background: none;
+	height: 50px;
+	font-size: 17px;
+	color: #fff;
+	padding: 6px 80px 6px 30px;
+	border: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: 1px solid rgb(192, 181, 150);
+
+}
+.block-for-back .sbmt-btn{
+	background: rgba(192, 181, 150);
+	color: #fff;
+	border: 0;
+	outline: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 125px;
+	height: 50px;
+	border-top-right-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+	padding: 0;
+	cursor: pointer;
+}
+.block-for-back form input[type="email"]{
+	color: black;
+}
+.block-for-back div.wpcf7-response-output{
+	color: black;
+}
+.data-info-file{
+	margin-top: 25px;
+}
+@media screen and (max-width: 1000px) {
+	.header-shot .search{
+		position: relative;
+		left: -40px;
+	}
+}
+@media screen and (max-width: 450px) {
+	.header-top .row>div{
+		text-align: center;
+	}
+	.header-top ul.header-contact{
+		text-align: center;
+	}
+	.header-top .row>div>div{
+		text-align: center;
+	}
+	.slide-caption h2 span{
+		font-size: 30px;
+	}
+	.studies-menu button{
+		padding: 0px 0px 10px;
+		position: relative;
+	}
+	.studies-menu button:after{
+		position: absolute;
+		content: "|";
+		top: -2px;
+		color: black;
+	}
+	.studies-menu button:last-of-type:after{
+		display: none;
+	}
+	.owl-stage-outer .slide-item p{
+		padding: 20px 33px 0 30px;
+	}
+	.testimonial-text .testimonial-slide .owl-dots{
+		bottom: -23%;
+	}
+	.counter-area.counter-area2 .row .counter-grids .grid{
+		width: 45%;
+		padding: 36px 0px 140px;
+	}
+	.counter-area.counter-area2 .counter-grids .grid h2{
+		font-size: 30px;
+	}
+	.counter-area.counter-area2 .counter-grids .grid p{
+		font-size: 17px;
+	}
+	.Attorneys-area .row>div{
+		padding: 0;
+	}
+	.Attorneys-item .Attorneys-img img{
+		width: 300px;
+		height: 250px;
+	}
+	.contact-area .contact-form form textarea{
+		height: 70px;
+	}
+	.header-area.header-area2{
+		padding: 0px 0 10px 0;
+	}
+}
+.social-newsletter-section .newsletter .newsletter-form .sbmt-btn{
+	background: #c0b596 !IMPORTANT;
+}
+.block-for-back .sbmt-btn{
+	background: #c0b596 !IMPORTANT;
+}
+
+.block-for-back p strong{
+	font-weight: 800;
+}
+.block-for-back p em {
+	font-style: italic;
+}
+main .breadcumb-area{
+	min-height: 300px;
+}
+.with_subsc .social-newsletter-section{
+	display: block;
+}
+.news-wrapper .blog-item{
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+.news-wrapper .blog-item>div{
+	width: 50%;
+	padding: 0 20px;
+}
+@media screen and (max-width: 800px) {
+	.news-wrapper .blog-item{
+		display: block;
+	}
+	.news-wrapper .blog-item>div{
+		width: 100%;
+	}
+	.blog-page-area .news-new-type{
+		text-align: center;
+		float: none;
+		margin-right: 0;
+	}
+	.blog-page-area .news-new-type img{
+		width: auto;
+		height: auto;
+		margin-bottom: 20px;
+	}
+}
+.news-new-type{
+	float: left;
+	margin-right: 20px;
+}
+.header-top .row>div{
+	padding-left: 10px;
+	padding-right: 10px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.header-top ul li{
+	padding: 10px;
+}
+ul.header-contact li{
+	width: 250px;
+}
+.header-contact li:first-child:before{
+	display: none;
+}
+.img-holder img{
+	height: 600px
+}
+.testimonial-area{
+	padding-bottom: 35px;
+}

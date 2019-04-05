@@ -4,7 +4,7 @@ get_header();
 
     <main>
         <!-- .breadcumb-area start -->
-        <div class="breadcumb-area">
+        <div class="breadcumb-area" style="background: url(<?php the_field("photo_for_page_service"); ?>) no-repeat center top / cover">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -86,89 +86,37 @@ get_header();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-parents"></i>
-                                </div>
-
-                                <div class="service-text">
-                                    <h3>Join Our Team</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
+                    <?php
+                    $query = new WP_Query('post_type=services');
+                    if ( $query->have_posts() ) {
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                            ?>
+                            <div class="col-lg-4 col-md-6">
+                                <a href="<?php echo get_permalink(); ?>">
+                                    <div class="service-item">
+                                        <div class="row">
+                                            <div class="service-icon" style="background: center url('<?php the_field("trumb_photo"); ?>') no-repeat; border-radius: 50%; background-size: cover;    width: 100px;
+                                                    height: 100px;
+                                                    display: inline-block;
+                                                    margin: 25px auto 0px auto;"></div>
+                                            <div class="service-text">
+                                                <h3><?php the_title(); ?></h3>
+                                               <?php the_field("low_discription"); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-wounded"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Personal Injury</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-employee"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Business Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-thief"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Criminal Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-university-graduate-hat"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Education Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="row">
-                                <div class="service-icon">
-                                    <i class="fi flaticon-house"></i>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Real Estate Law</h3>
-                                    <p>There are many variations of passages of Lorem</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                        }
+                    }
+                    wp_reset_postdata();
+                    ?>
                 </div>
-                <div class="btns text-center">
+                <!--<div class="btns text-center">
                     <div class="btn-style"><a href="#">Load more</a></div>
-                </div>
+                </div>-->
             </div>
         </div>
         <!-- practice-area end -->
@@ -226,50 +174,44 @@ get_header();
                             </div>
                             <div class="testimonial-slide owl-carousel">
                                 <?php
-                                if( have_rows('testimonils_slider', 2) ):
-                                    while ( have_rows('testimonils_slider', 2) ) : the_row();
+                                // задаем нужные нам критерии выборки данных из БД
+                                $args = array(
+                                    'posts_per_page' => 5,
+                                    'post_type' => 'wpm-testimonial'
+                                );
+
+                                $query = new WP_Query( $args );
+                                // Цикл
+                                if ( $query->have_posts() ) {
+                                    while ( $query->have_posts() ) {
+                                        $query->the_post();
                                         ?>
                                         <div class="slide-item">
-                                            <p><?php the_sub_field("testimpnail_title"); ?></p>
+                                            <p><?php echo wp_trim_words( get_the_content(), 20 ); ?></p>
                                             <div class="thumb-img">
-                                                <img src="<?php the_sub_field("client_photo"); ?>" alt="">
-                                            </div>
-                                            <div class="img-content">
-                                                <h4><?php the_sub_field("client_name"); ?></h4>
-                                                <span><?php the_sub_field("client_position"); ?></span>
+                                                <!--                                                <img src="<?php /*the_sub_field("client_photo"); */?>" alt="">
+-->                                            </div>
+                                            <div style="margin: 0 0 0 30px" class="img-content">
+                                                <h4><?php wpmtst_field( 'client_name' ); ?></h4>
                                             </div>
                                         </div>
-                                    <?php
-                                    endwhile;
-                                endif;
+                                        <?
+                                    }
+                                }
+                                wp_reset_postdata();
                                 ?>
                             </div>
+                            <a href="/vidguki"><button style="margin-top: 50px; cursor: pointer; outline: none " class="theme-btn-s3">Більше коментарів...</button></a>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- testimonial area start -->
-        <!-- start social-newsletter-section -->
-        <section class="social-newsletter-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="newsletter text-center">
-                            <h3><?php the_field("name_of_subs_block", 2); ?></h3>
-                            <div class="newsletter-form">
-                                <form>
-                                    <input type="text" class="form-control" placeholder="Enter Your Email Address...">
-                                    <button type="submit">subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- end social-newsletter-section -->
+        <?php
+        get_sidebar( 'subscribe' );
+        ?>
     </main>
 
 <?php

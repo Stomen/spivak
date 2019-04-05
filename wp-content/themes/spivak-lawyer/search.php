@@ -9,7 +9,7 @@
 
 get_header(); ?>
     <main>
-        <div class="container"  style="height: calc(100vh - 150px);">
+        <div class="container"  style="min-height: calc(100vh - 150px); padding-bottom: 30px">
             <div class="title-block">
                 <div style="font-size: 20px;margin: 10px 0;" class="center">
                     <span><?php printf("Результати пошуку для: %s", ' ' . get_search_query()); ?></span>

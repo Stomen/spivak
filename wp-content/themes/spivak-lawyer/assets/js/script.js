@@ -216,20 +216,49 @@
     /*================================
       Isotope Portfolio
      ==================================*/
+
+
     $('.grid').imagesLoaded(function() {
 
         // filter items on button click
         $('.studies-menu').on('click', 'button', function() {
             var filterValue = $(this).attr('data-filter');
+            console.log(filterValue);
+            if(filterValue === "*"){
+                filterValue = function() {
+                    // _this_ is the item element. Get text of element's .number
+                    var number = $(this).attr('data-number');
+                    if(number === undefined){
+                        return "*";
+                    }
+                    else{
+                        // return true to show, false to hide
+                        return parseInt(number , 10 ) < 5;
+                    }
+                };
+            }
             $grid.isotope({
                 filter: filterValue
             });
         });
 
+
+
         // init Isotope
         var $grid = $('.grid').isotope({
             itemSelector: '.grid-item',
-            percentPosition: true,
+            filter: function() {
+                // _this_ is the item element. Get text of element's .number
+                var number = $(this).attr('data-number');
+                // return true to show, false to hide
+                if(number === undefined){
+                    return "*";
+                }
+                else{
+                    // return true to show, false to hide
+                    return parseInt(number , 10 ) < 5;
+                }
+            },
             masonry: {
                 // use outer width of grid-sizer for columnWidth
                 columnWidth: '.grid-item',

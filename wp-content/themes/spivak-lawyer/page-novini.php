@@ -4,7 +4,7 @@ get_header();
 
     <main>
         <!-- .breadcumb-area start -->
-        <div class="breadcumb-area">
+        <div class="breadcumb-area" style="background: url('<?php the_field("news_fone_pgoto") ?>')">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -17,7 +17,7 @@ get_header();
             </div>
         </div>
         <!-- .breadcumb-area end -->
-        <div class="blog-page-area section-padding">
+        <div class="blog-page-area news-wrapper section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">
@@ -43,7 +43,7 @@ get_header();
                                                             <li><?php echo get_post_time( 'j F Y' ); ?></li>
                                                         </ul>
                                                         <h2><?php the_title() ?></h2>
-                                                        <?php the_content("read more..") ?>
+                                                        <?php the_content("Читати далі..") ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -63,7 +63,7 @@ get_header();
                                             </div>
                                             <div class="blog-content-2">
                                                 <h2><?php the_title() ?></h2>
-                                                <?php the_content("read more..") ?>
+                                                <?php the_content("Читати далі..") ?>
                                             </div>
                                         </div>
                                         <?php
@@ -93,26 +93,9 @@ get_header();
                 </div>
             </div>
         </div>
-        <!-- start social-newsletter-section -->
-        <section class="social-newsletter-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="newsletter text-center">
-                            <h3><?php the_field("name_of_subs_block", 2); ?></h3>
-                            <div class="newsletter-form">
-                                <form>
-                                    <input type="text" class="form-control" placeholder="Enter Your Email Address...">
-                                    <button type="submit">subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- end social-newsletter-section -->
+        <?php
+        get_sidebar( 'subscribe' );
+        ?>
     </main>
 
 <?php

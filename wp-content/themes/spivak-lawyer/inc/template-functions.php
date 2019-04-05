@@ -265,7 +265,7 @@ function create_questions_post_type() {
             'taxonomies' => array('questions-cat'),
             'menu_position' => 25,
             'rewrite' => false,
-            'supports'           => array('title','editor','comments', 'custom-fields', 'author')
+            'supports'           => array('title','editor','comments', 'custom-fields', 'author', 'thumbnail')
         )
     );
 }
@@ -328,15 +328,15 @@ function create_services_post_type() {
             'taxonomies' => array('services-cat'),
             'menu_position' => 26,
             'rewrite' => false,
-            'supports'           => array('title','editor','comments', 'custom-fields', 'author')
+            'supports'           => array('title','editor', 'custom-fields', 'author', 'thumbnail')
         )
     );
 }
 add_action( 'init', 'create_services_post_type' );
 
-add_action( 'init', 'create_services_cat_taxonomy', 0 );
+//**add_action( 'init', 'create_services_cat_taxonomy', 0 );*/
 
-function create_services_cat_taxonomy() {
+/*function create_services_cat_taxonomy() {
 
 // Labels part for the GUI
 
@@ -369,3 +369,49 @@ function create_services_cat_taxonomy() {
         'rewrite' => false
     ));
 }
+*/
+
+add_filter( 'excerpt_length', function(){
+    return 10;
+} );
+add_filter('excerpt_more', function($more) {
+    return '...';
+});
+
+function remove_menus(){
+    remove_menu_page( 'edit-comments.php' );          //Комментарии
+}
+add_action( 'admin_menu', 'remove_menus' );
+
+
+function send_file_function(){
+    $post_id_btn = $_POST['data_id'];
+    $email_send_file = $_POST['data_email'];
+    $message = "";
+    $attachments = '';
+    $headers[] = 'Content-type: text/html; charset=utf-8';
+
+    $message = get_field('text_to_letter', $post_id_btn);
+    $attachments = get_field('file_attach_block', $post_id_btn);
+
+    $attachments =  $attachments['url'];
+
+    $attachments_str = strpos($attachments, 'uploads');
+
+    $attachments_str = substr($attachments, $attachments_str, strlen($attachments));
+
+    $mail_attachment = array(WP_CONTENT_DIR . '/'.$attachments_str);
+
+    wp_mail($email_send_file, 'Spivak', $message, $headers, $mail_attachment);
+
+    die();
+}
+
+add_action('wp_ajax_send_file_action', 'send_file_function');
+add_action('wp_ajax_nopriv_send_file_action', 'send_file_function');
+
+function remove_more_link_scroll( $link ) {
+    $link = preg_replace( '|#more-[0-9]+|', '', $link );
+    return $link;
+}
+add_filter( 'the_content_more_link', 'remove_more_link_scroll' );

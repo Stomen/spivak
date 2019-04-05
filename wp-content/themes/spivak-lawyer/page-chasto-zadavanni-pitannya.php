@@ -4,7 +4,7 @@ get_header();
 
     <main>
         <!-- .breadcumb-area start -->
-        <div class="breadcumb-area">
+        <div class="breadcumb-area" style="background: url(<?php the_field("faq_fone_foto"); ?>) no-repeat center top / cover">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -23,165 +23,56 @@ get_header();
                 <!-- studies area start -->
                 <div class="col-l2">
                     <div class="section-title section-title2 text-center">
-                        <span>Here Our Best Work</span>
-                        <h2>Our Resent Case Studies</h2>
+                        <span><?php the_field("text_under_name_faq"); ?></span>
+                        <h2><?php the_field("name_of_faq_page"); ?></h2>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="studies-menu text-center">
                         <button class="active" data-filter="*">All</button>
-                        <button data-filter=".Family-Matters">Family Matters</button>
-                        <button data-filter=".Real-Estate">Real Estate</button>
-                        <button data-filter=".Business">Business</button>
-                        <button data-filter=".Criminal">Criminal</button>
-                        <button data-filter=".Injury">Injury</button>
+                        <?php
+                        $custom_tax_cats = get_terms( "questions-cat" );
+                        foreach ($custom_tax_cats as $item){
+                            ?>
+                            <button data-filter=".<?php echo $item->slug; ?>"><?php echo $item->name; ?></button>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="row grid">
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family Matters Business Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/1.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Corporate</p>
-                                    <h3>General Service</h3>
+                    <?php
+                    $index_query = new WP_Query(array('post_type' => 'faq', 'posts_per_page' => '-1', 'order' => 'DESC'));
+                    while ($index_query->have_posts()) : $index_query->the_post();
+                        $terms = get_the_terms( $post->ID, 'questions-cat' );
+                        ?>
+
+                        <div class="col-lg-4 col-md-6 col-sm-6 grid-item <?php echo $terms[0]->slug; ?>">
+                            <a href="<?php echo get_permalink(); ?>">
+                                <div class="studies-item">
+                                    <div class="studies-single">
+                                        <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                    </div>
+                                    <div class="overlay-text">
+                                        <div class="text-inner">
+                                            <p class="sub"><?php echo $terms[0]->name; ?></p>
+                                            <h3><?php the_title(); ?></h3>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Real-Estate Criminal">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/2.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">General</p>
-                                    <h3>Personal Issue</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Business Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/3.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Business</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Real-Estate Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/4.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Criminal</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Real-Estate Business Criminal Family-Matters Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/5.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Family Issue</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family Matters Business Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/6.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Corporate</p>
-                                    <h3>General Service</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Business Criminal Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/3.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Business</p>
-                                    <h3>Business Accounting</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family Matters Business Injury">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/1.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">Corporate</p>
-                                    <h3>General Service</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 grid-item Family-Matters Real-Estate Criminal">
-                        <div class="studies-item">
-                            <div class="studies-single">
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/studies/2.jpg" alt="">
-                            </div>
-                            <div class="overlay-text">
-                                <div class="text-inner">
-                                    <p class="sub">General</p>
-                                    <h3>Personal Issue</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="btns text-center">
-                    <div class="btn-style"><a href="#">Load more</a></div>
+                    <?
+                    endwhile;
+                    wp_reset_query();
+                    ?>
                 </div>
             </div>
         </div>
         <!-- case studiess area end -->
-        <!-- start social-newsletter-section -->
-        <section class="social-newsletter-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="newsletter text-center">
-                            <h3>Subscribe  Newsletter</h3>
-                            <div class="newsletter-form">
-                                <form>
-                                    <input type="text" class="form-control" placeholder="Enter Your Email Address...">
-                                    <button type="submit">subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- end social-newsletter-section -->
+        <?php
+        get_sidebar( 'subscribe' );
+        ?>
     </main>
 
 <?php
